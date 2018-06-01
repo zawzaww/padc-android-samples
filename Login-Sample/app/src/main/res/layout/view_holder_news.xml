@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_image_logo"
+        android:layout_width="@dimen/pub_name"
+        android:layout_height="@dimen/pub_name"
+        android:src="@drawable/eleven_logo"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginLeft="@dimen/margin_medium_2" />
+
+    <TextView
+        android:id="@+id/tv_text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eleven News"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="@color/primaryText"
+        android:layout_toRightOf="@+id/iv_image_logo"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginLeft="@dimen/margin_medium" />
+
+    <TextView
+        android:id="@+id/tv_posted_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Posted: Jan 01 - 06:30AM"
+        android:layout_below="@+id/tv_text_title"
+        android:textStyle="normal"
+        android:textColor="@color/secondText"
+        android:layout_alignLeft="@+id/tv_text_title" />
+
+    <TextView
+        android:id="@+id/tv_news"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ကမာၻ႔ေရနံစိမ္းေဈးသည္ ေမလ ၂၆ ရက္တြင္ တစ္စည္လွ်င္ ၇၆ ဒသမ ၄၄ ေဒၚလာရွိၿပီး လြန္ခဲ့ သည့္ေလးရက္ကထက္ တစ္စည္ လွ်င္ သုံးေဒၚလာခန႔္ ျပန္လည္က် ဆင္းလာသည္။
+
+ျပည္တြင္း စက္သုံးဆီေဈး ကြက္တြင္ ေမလ ၂၆ ရက္၌ ေအာက္တိန္း-92 တစ္လီတာ လွ်င္ ၈၇၀ က်ပ္၊ ေအာက္တိန္း-95 တစ္လီတာလွ်င္ ၉၂၀ က်ပ္၊ ဒီဇယ္တစ္လီတာလွ်င္ ၉၀၅ က်ပ္ ႏွင့္ ပရီမီယံဒီဇယ္တစ္လီတာလွ်င္ ၉၂၀ က်ပ္ခန႔္ျဖင့္ ေရာင္းခ်ေန သည္။ လက္ရွိ ေရာင္းခ်ေနေသာ ျပည္တြင္း စက္သုံးဆီေဈးသည္ ကမာၻ႔ေရနံစိမ္းေဈးတစ္စည္လွ်င္ ၇၉ ဒသမ ၈၀ ေဒၚလာခန႔္ျဖစ္ေပၚ ခဲ့သည့္ ရက္က ႏႈန္းထားအတိုင္း ျဖစ္ၿပီး ျပန္လည္ေလွ်ာ့ခ်ေရာင္း ခ်ျခင္းမရွိေသးသည္ကို ေတြ႕ရ ေၾကာင္း စက္သုံးဆီေဈးႏႈန္းေစာင့္ ၾကည့္ေလ့လာသူတစ္ဦးက ေျပာ ၾကားသည္။"
+        android:textColor="@color/primaryText"
+        android:layout_below="@id/iv_image_logo"
+        android:layout_margin="@dimen/margin_medium_3"
+        android:maxLines="5"
+        android:ellipsize="end" />
+
+    <ImageView
+        android:id="@+id/iv_news_heder"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/news_header_image"
+        android:layout_below="@id/tv_news"
+        android:scaleType="fitCenter"
+        android:layout_margin="@dimen/margin_medium_2" />
+
+</RelativeLayout>

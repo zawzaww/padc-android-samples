@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LoginSample Android</string>
+    <string name="app_name">LoginSample</string>
     <string name="action_settings">Settings</string>
     <string name="textview_one">Hello PADC</string>
     <string name="textview_two">Android App Development Course</string>
