@@ -5,11 +5,11 @@
 
     <ImageView
         android:id="@+id/iv_image_logo"
-        android:layout_width="@dimen/pub_name"
-        android:layout_height="@dimen/pub_name"
+        android:layout_width="@dimen/pub_logo_size"
+        android:layout_height="@dimen/pub_logo_size"
         android:src="@drawable/eleven_logo"
         android:layout_marginTop="@dimen/margin_medium_2"
-        android:layout_marginLeft="@dimen/margin_medium_2" />
+        android:layout_marginStart="@dimen/margin_medium_2" />
 
     <TextView
         android:id="@+id/tv_text_title"
@@ -19,8 +19,9 @@
         android:textStyle="bold"
         android:textSize="18dp"
         android:textColor="@color/primaryText"
+        android:layout_alignTop="@+id/iv_image_logo"
         android:layout_toRightOf="@+id/iv_image_logo"
-        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium"
         android:layout_marginLeft="@dimen/margin_medium" />
 
     <TextView
@@ -33,7 +34,7 @@
         android:textColor="@color/secondText"
         android:layout_alignLeft="@+id/tv_text_title" />
 
-    <TextView
+    <org.mmtextview.components.MMTextView
         android:id="@+id/tv_news"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,6 +44,7 @@
         android:textColor="@color/primaryText"
         android:layout_below="@id/iv_image_logo"
         android:layout_margin="@dimen/margin_medium_3"
+        android:lineSpacingMultiplier="1.3"
         android:maxLines="5"
         android:ellipsize="end" />
 
@@ -52,7 +54,80 @@
         android:layout_height="300dp"
         android:src="@drawable/news_header_image"
         android:layout_below="@id/tv_news"
-        android:scaleType="fitCenter"
-        android:layout_margin="@dimen/margin_medium_2" />
+        android:scaleType="centerCrop"
+        android:layout_margin="@dimen/margin_medium" />
+
+    <TextView
+        android:id="@+id/tv_news_statistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5 Likes - 9 Comments - Sent to 8 People"
+        android:layout_below="@+id/iv_news_heder"
+        android:padding="@dimen/margin_medium"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_regular_2x"
+        android:foreground="@drawable/ripple"
+        android:clickable="true" />
+
+    <LinearLayout
+        android:id="@+id/ll_news_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/tv_news_statistics">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foreground="@drawable/ripple"
+            android:clickable="true">
+
+            <Button
+                android:id="@+id/btn_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comment"
+                android:textAllCaps="false"
+                android:drawableLeft="@drawable/ic_comment"
+                android:textColor="@color/colorPrimary"
+                android:background="@color/bg_button_transp"
+                android:drawablePadding="@dimen/margin_medium_2"
+                android:layout_gravity="center"
+                android:clickable="false" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foreground="@drawable/ripple"
+            android:clickable="true">
+
+            <Button
+                android:id="@+id/btn_sent_to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sent to"
+                android:textAllCaps="false"
+                android:drawableLeft="@drawable/ic_send"
+                android:textColor="@color/colorPrimary"
+                android:background="@color/bg_button_transp"
+                android:drawablePadding="@dimen/margin_medium_2"
+                android:layout_gravity="center"
+                android:clickable="false" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/btn_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_favorite_border"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/margin_medium"
+        android:foreground="@drawable/ripple"
+        android:padding="@dimen/margin_medium"
+        android:clickable="true" />
 
 </RelativeLayout>

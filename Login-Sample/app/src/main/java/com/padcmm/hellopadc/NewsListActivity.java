@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.support.v7.app.AppCompatActivity;
 import com.padcmm.hellopadc.adapters.NewsAdapter;
 
+import org.mmtextview.MMFontUtils;
+
 public class NewsListActivity extends AppCompatActivity {
 
     @Override
@@ -15,6 +17,8 @@ public class NewsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_news_list);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        MMFontUtils.initMMTextView(this);
 
         RecyclerView rvNews = findViewById(R.id.rv_news);
         NewsAdapter newsAdapter = new NewsAdapter();
