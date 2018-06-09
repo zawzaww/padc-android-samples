@@ -1,5 +1,5 @@
 # PADC Myanmar
-## PADC-5 Android Fundamentals: Android App Sample Projects
+## PADC-5 Android Fundamentals: Sample Projects
 
 <img src="https://miro.medium.com/fit/c/240/240/1*Dsm9HO6o4KyvQUwCN3lJjA.png" />
 
