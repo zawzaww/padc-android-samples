@@ -1,5 +1,6 @@
-# PADC Android Sample Projects
+# PADC Myanmar
+## PADC-5 Android Fundamentals: Android App Sample Projects
 
-This Repository is for PADC-5 Fun Android Sample Projects.
+<img src="https://miro.medium.com/fit/c/240/240/1*Dsm9HO6o4KyvQUwCN3lJjA.png" />
 
 Contributed by: [Zaw Zaw](https://forum.xda-developers.com/member.php?u=7581611)
