@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import com.zawzaw.hellopadc.R;
 import com.zawzaw.hellopadc.adapters.NewsAdapter;
+import com.zawzaw.hellopadc.data.models.NewsModel;
 import com.zawzaw.hellopadc.delegates.NewsDelegate;
 import org.mmtextview.MMFontUtils;
 
@@ -27,6 +28,8 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
 
         rvNews.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,
                 false));
+
+        NewsModel.getObjInstance().loadNewsList();
 
     }
 
