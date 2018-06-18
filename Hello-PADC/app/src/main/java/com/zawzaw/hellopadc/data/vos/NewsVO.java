@@ -31,9 +31,6 @@ public class NewsVO {
     }
 
     public List<String> getImages() {
-        if (images == null) {
-
-        }
         return images;
     }
 
