@@ -18,7 +18,6 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
                 mNewsDelegate.onTapNews();
             }
         });
-
     }
 
 }

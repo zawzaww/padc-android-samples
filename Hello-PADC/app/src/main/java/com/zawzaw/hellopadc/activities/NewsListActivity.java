@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+
+import org.mmtextview.MMFontUtils;
+
 import com.zawzaw.hellopadc.R;
 import com.zawzaw.hellopadc.adapters.NewsAdapter;
 import com.zawzaw.hellopadc.data.models.NewsModel;
 import com.zawzaw.hellopadc.delegates.NewsDelegate;
-import org.mmtextview.MMFontUtils;
 
 public class NewsListActivity extends BaseActivity implements NewsDelegate {
 
@@ -30,7 +32,6 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
                 false));
 
         NewsModel.getObjInstance().loadNewsList();
-
     }
 
     @Override

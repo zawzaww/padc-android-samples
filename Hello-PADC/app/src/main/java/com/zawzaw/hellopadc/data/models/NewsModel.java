@@ -17,13 +17,13 @@ public class NewsModel {
 
     public NewsModel() {
         mNewsDataAgent = HttpUrlConnectionDataAgent.getObjInstance();
+
     }
 
     public static NewsModel getObjInstance() {
         if (objInstance == null) {
             objInstance = new NewsModel();
         }
-
         return objInstance;
     }
 

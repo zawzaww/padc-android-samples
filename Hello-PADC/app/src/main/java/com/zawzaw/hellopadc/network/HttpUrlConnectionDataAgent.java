@@ -34,36 +34,37 @@ public class HttpUrlConnectionDataAgent implements NewsDataAgent {
     }
 
     @Override
-    public void loadNewsList(int page, final String accessToken) {
+    public void loadNewsList(final int page, final String accessToken) {
 
         new AsyncTask<Void, Void, String>() {
+
             @Override
             protected String doInBackground(Void... voids) {
+
                 URL url;
-                BufferedReader bufferedReader = null;
+                BufferedReader reader = null;
                 StringBuilder stringBuilder;
 
                 try {
-                    // Step(1)
-                    url = new URL(NewsConstants.BASE_URL + NewsConstants.GET_NEWS);
-                    // Step(2)
-                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    // Create the HttpURLConnection.
+                    url = new URL(NewsConstants.BASE_API + NewsConstants.GET_NEWS); // 1
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection(); // 2
 
-                    // Step(3)
-                    connection.setRequestMethod("POST");
+                    // Just want to do an HTTP POST here.
+                    connection.setRequestMethod("POST"); // 3
 
-                    // Step(4)
-                    connection.setReadTimeout(15 * 1000);
+                    // Give it 15 seconds to respond.
+                    connection.setReadTimeout(15 * 1000); // 4
 
-                    // Step(5)
-                    connection.setDoInput(true);
+                    connection.setDoInput(true); // 5
                     connection.setDoOutput(true);
 
-                    // Step(6)
-                    List<NameValuePair> params = new ArrayList<>();
+                    // Put the request parameter into NameValuePair list.
+                    List<NameValuePair> params = new ArrayList<>(); // 6
                     params.add(new BasicNameValuePair(NewsConstants.PARAM_ACCESS_TOKEN, accessToken));
+                    params.add(new BasicNameValuePair(NewsConstants.PARAM_PAGE, String.valueOf(page)));
 
-                    // Step(7)
+                    // Write the parameters from NameValuePair list into connection obj.
                     OutputStream outputStream = connection.getOutputStream();
                     BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
                     writer.write(getQuery(params));
@@ -71,40 +72,40 @@ public class HttpUrlConnectionDataAgent implements NewsDataAgent {
                     writer.close();
                     outputStream.close();
 
-                    connection.connect();
+                    connection.connect(); // 7
 
-                    // Step(8)
-                    bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                    // Read the output from the server.
+                    reader = new BufferedReader(new InputStreamReader(connection.getInputStream())); // 8
                     stringBuilder = new StringBuilder();
 
-                    // Step(9)
-                    String responseString = stringBuilder.toString();
+                    String line = null;
+                    while ((line = reader.readLine()) != null) {
+                        stringBuilder.append(line + "\n");
+                    }
 
+                    String responseString = stringBuilder.toString(); // 9
                     return responseString;
 
                 } catch (Exception e) {
-                    Log.e(" ", e.getMessage());
-                }
-
-                finally {
+                    Log.e("ERROR", e.getMessage());
+                } finally {
                     // Close the reader; this can throw an exception too, so
                     // wrap it in another try/catch block.
-                    if (bufferedReader != null) {
+                    if (reader != null) {
                         try {
-                            bufferedReader.close();
+                            reader.close();
                         } catch (IOException ioe) {
+                            Log.e("ERROR", ioe.getMessage());
                             ioe.printStackTrace();
                         }
                     }
                 }
-
                 return null;
             }
 
             @Override
-            protected void onPostExecute(String s) {
-
-                super.onPostExecute(s);
+            protected void onPostExecute(String responseString) {
+                super.onPostExecute(responseString);
             }
 
         }.execute();
@@ -125,6 +126,7 @@ public class HttpUrlConnectionDataAgent implements NewsDataAgent {
             result.append("=");
             result.append(URLEncoder.encode(pair.getValue(), "UTF-8"));
         }
+
         return result.toString();
     }
 

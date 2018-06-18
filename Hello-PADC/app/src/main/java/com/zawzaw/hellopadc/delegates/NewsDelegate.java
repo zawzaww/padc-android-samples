@@ -8,5 +8,4 @@ public interface NewsDelegate {
     void onTapSentTo();
     void onTapStatistics();
 
-
 }
