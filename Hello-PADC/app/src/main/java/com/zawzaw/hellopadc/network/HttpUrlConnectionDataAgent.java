@@ -14,9 +14,15 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.zawzaw.hellopadc.events.ApiErrorEvent;
+import com.zawzaw.hellopadc.events.SuccessGetNewsEvent;
+import com.zawzaw.hellopadc.network.responses.GetNewsResponse;
 import com.zawzaw.hellopadc.utils.NewsConstants;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.greenrobot.eventbus.EventBus;
 
 public class HttpUrlConnectionDataAgent implements NewsDataAgent {
 
@@ -106,6 +112,19 @@ public class HttpUrlConnectionDataAgent implements NewsDataAgent {
             @Override
             protected void onPostExecute(String responseString) {
                 super.onPostExecute(responseString);
+
+                Gson gson = new Gson();
+                GetNewsResponse newsResponse = gson.fromJson(responseString, GetNewsResponse.class);
+                Log.d("onPostExecute", "News List Size" + newsResponse.getMmNews().size());
+
+                if (newsResponse.isResponseOk()) {
+                    SuccessGetNewsEvent event = new SuccessGetNewsEvent(newsResponse.getMmNews());
+                    EventBus.getDefault().post(event);
+                } else {
+                    ApiErrorEvent apiErrorEvent = new ApiErrorEvent(newsResponse.getMessage());
+                    EventBus.getDefault().post(apiErrorEvent);
+                }
+
             }
 
         }.execute();

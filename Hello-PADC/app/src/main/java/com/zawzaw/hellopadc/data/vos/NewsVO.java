@@ -1,6 +1,7 @@
 package com.zawzaw.hellopadc.data.vos;
 
 import java.util.List;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by zawzaw on 12/06/2018.
@@ -8,14 +9,31 @@ import java.util.List;
 
 public class NewsVO {
 
+    @SerializedName("news-id")
     private String newsId;
+
+    @SerializedName("brief")
     private String brief;
+
+    @SerializedName("details")
     private String details;
+
+    @SerializedName("images")
     private List<String> images;
+
+    @SerializedName("posted-date")
     private String postedDate;
+
+    @SerializedName("publication")
     private PublicationVO publication;
+
+    @SerializedName("favorites")
     private List<FavoriteVO> favorites;
+
+    @SerializedName("comments")
     private List<CommentVO> comments;
+
+    @SerializedName("sent-tos")
     private List<SentToVO> sentTos;
 
     public String getNewsId() {

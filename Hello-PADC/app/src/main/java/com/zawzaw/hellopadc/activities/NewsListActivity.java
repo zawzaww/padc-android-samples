@@ -5,15 +5,22 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.mmtextview.MMFontUtils;
 
 import com.zawzaw.hellopadc.R;
 import com.zawzaw.hellopadc.adapters.NewsAdapter;
 import com.zawzaw.hellopadc.data.models.NewsModel;
 import com.zawzaw.hellopadc.delegates.NewsDelegate;
+import com.zawzaw.hellopadc.events.SuccessGetNewsEvent;
 
 public class NewsListActivity extends BaseActivity implements NewsDelegate {
+
+    private NewsAdapter mNewsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +32,24 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
         MMFontUtils.initMMTextView(this);
 
         RecyclerView rvNews = findViewById(R.id.rv_news);
-        NewsAdapter newsAdapter = new NewsAdapter(this);
-        rvNews.setAdapter(newsAdapter);
-
-        rvNews.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,
-                false));
+        mNewsAdapter = new NewsAdapter(this);
+        rvNews.setAdapter(mNewsAdapter);
+        rvNews.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
+                LinearLayoutManager.VERTICAL, false));
 
         NewsModel.getObjInstance().loadNewsList();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -58,6 +76,12 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
     @Override
     public void onTapStatistics() {
 
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onSuccessGetNews(SuccessGetNewsEvent event) {
+        Log.d("SuccessGetNews", "Success Get NewsList : " + event.getNewsList().size());
+        mNewsAdapter.setNewsList(event.getNewsList());
     }
 
 }
