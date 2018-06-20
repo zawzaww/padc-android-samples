@@ -55,7 +55,9 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
 
         tvNewsBrief.setText(news.getBrief());
         tvPublicationTitle.setText(news.getPublication().getTitle());
-        tvPostedDate.setText(news.getPostedDate());
+        tvPostedDate.setText(tvPostedDate.getContext().getResources()
+                .getString(R.string.format_posted_date, news.getPostedDate()));
+
     }
 
 }
