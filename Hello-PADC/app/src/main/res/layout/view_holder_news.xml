@@ -14,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/iv_image_logo"
+            android:id="@+id/iv_publication_logo"
             android:layout_width="@dimen/pub_logo_size"
             android:layout_height="@dimen/pub_logo_size"
             android:layout_marginStart="@dimen/margin_medium_2"
@@ -22,13 +22,13 @@
             android:src="@drawable/eleven_logo" />
 
         <TextView
-            android:id="@+id/tv_text_title"
+            android:id="@+id/tv_publication_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/iv_image_logo"
+            android:layout_alignTop="@+id/iv_publication_logo"
             android:layout_marginLeft="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_medium"
-            android:layout_toRightOf="@+id/iv_image_logo"
+            android:layout_toRightOf="@+id/iv_publication_logo"
             android:text="Eleven News"
             android:textColor="@color/primaryText"
             android:textSize="18dp"
@@ -38,8 +38,8 @@
             android:id="@+id/tv_posted_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tv_text_title"
-            android:layout_below="@+id/tv_text_title"
+            android:layout_alignLeft="@+id/tv_publication_title"
+            android:layout_below="@+id/tv_publication_title"
             android:text="Posted: Jan 01 - 06:30AM"
             android:textColor="@color/primaryText"
             android:textStyle="normal" />
@@ -48,7 +48,7 @@
             android:id="@+id/tv_news_brief"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/iv_image_logo"
+            android:layout_below="@id/iv_publication_logo"
             android:layout_margin="@dimen/margin_medium_3"
             android:ellipsize="end"
             android:lineSpacingMultiplier="1.3"
