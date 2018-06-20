@@ -57,7 +57,7 @@
             android:textColor="@color/primaryText" />
 
         <ImageView
-            android:id="@+id/iv_news_heder"
+            android:id="@+id/iv_news_header"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_below="@id/tv_news_brief"
@@ -69,7 +69,7 @@
             android:id="@+id/tv_news_statistics"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/iv_news_heder"
+            android:layout_below="@+id/iv_news_header"
             android:clickable="true"
             android:foreground="@drawable/ripple"
             android:padding="@dimen/margin_medium"

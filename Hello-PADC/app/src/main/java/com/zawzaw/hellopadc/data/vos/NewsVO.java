@@ -1,5 +1,6 @@
 package com.zawzaw.hellopadc.data.vos;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
@@ -49,6 +50,9 @@ public class NewsVO {
     }
 
     public List<String> getImages() {
+        if (images == null) {
+            return new ArrayList<>();
+        }
         return images;
     }
 
