@@ -15,6 +15,7 @@ import org.mmtextview.MMFontUtils;
 import com.zawzaw.padcmyanmar.R;
 import com.zawzaw.padcmyanmar.adapters.NewsAdapter;
 import com.zawzaw.padcmyanmar.data.models.NewsModel;
+import com.zawzaw.padcmyanmar.data.vos.NewsVO;
 import com.zawzaw.padcmyanmar.delegates.NewsDelegate;
 import com.zawzaw.padcmyanmar.events.SuccessGetNewsEvent;
 
@@ -53,28 +54,29 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
     }
 
     @Override
-    public void onTapNews() {
+    public void onTapNews(NewsVO news) {
         Intent intent = new Intent(getApplicationContext(), NewsDetailsActivity.class);
+        intent.putExtra("newsId", news.getNewsId());
         startActivity(intent);
     }
 
     @Override
-    public void onTapFavorite() {
+    public void onTapFavorite(NewsVO news) {
 
     }
 
     @Override
-    public void onTapComment() {
+    public void onTapComment(NewsVO news) {
 
     }
 
     @Override
-    public void onTapSentTo() {
+    public void onTapSentTo(NewsVO news) {
 
     }
 
     @Override
-    public void onTapStatistics() {
+    public void onTapStatistics(NewsVO news) {
 
     }
 
