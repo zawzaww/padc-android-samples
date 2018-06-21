@@ -1,4 +1,4 @@
-package com.zawzaw.hellopadc.network;
+package com.zawzaw.hellopadc.network.dataagent;
 
 /**
  * Created by zawzaw on 14/06/2018.

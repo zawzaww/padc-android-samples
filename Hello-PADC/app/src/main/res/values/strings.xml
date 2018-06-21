@@ -1,5 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">Hello PADC</string>
+    <string name="app_name">PADC MMNews Sample</string>
     <string name="action_settings">Settings</string>
     <string name="textview_one">Hello PADC Myanmar</string>
     <string name="textview_two">Android App Development Course</string>
