@@ -1,7 +1,7 @@
 package com.zawzaw.hellopadc.data.models;
 
 import com.zawzaw.hellopadc.network.dataagent.NewsDataAgent;
-import com.zawzaw.hellopadc.network.dataagent.OkHttpDataAgent;
+import com.zawzaw.hellopadc.network.dataagent.RetrofitDataAgent;
 
 /**
  * Created by zawzaw on 13/06/2018.
@@ -16,7 +16,7 @@ public class NewsModel {
     private NewsDataAgent mNewsDataAgent;
 
     public NewsModel() {
-        mNewsDataAgent = OkHttpDataAgent.getInstance();
+        mNewsDataAgent = RetrofitDataAgent.getObjInstance();
     }
 
     public static NewsModel getObjInstance() {
