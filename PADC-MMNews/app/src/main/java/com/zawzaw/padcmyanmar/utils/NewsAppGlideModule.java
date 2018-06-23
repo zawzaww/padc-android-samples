@@ -1,4 +1,4 @@
-package com.zawzaw.padcmyanmar.module;
+package com.zawzaw.padcmyanmar.utils;
 
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.module.AppGlideModule;
