@@ -19,16 +19,11 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
     private NewsDelegate mNewsDelegate;
     private NewsVO mNews;
 
-    @BindView(R.id.tv_news_brief)
-    TextView tvNewsBrief;
-    @BindView(R.id.iv_news_header)
-    ImageView ivNewsHeaderImage;
-    @BindView(R.id.iv_publication_logo)
-    ImageView ivPublicationLogo;
-    @BindView(R.id.tv_publication_title)
-    TextView tvPublicationTitle;
-    @BindView(R.id.tv_posted_date)
-    TextView tvPostedDate;
+    @BindView(R.id.tv_news_brief) TextView tvNewsBrief;
+    @BindView(R.id.iv_news_header) ImageView ivNewsHeaderImage;
+    @BindView(R.id.iv_publication_logo) ImageView ivPublicationLogo;
+    @BindView(R.id.tv_publication_title) TextView tvPublicationTitle;
+    @BindView(R.id.tv_posted_date) TextView tvPostedDate;
 
     public NewsViewHolder(View itemView, NewsDelegate newsDelegate) {
         super(itemView);
@@ -62,6 +57,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         GlideApp.with(ivPublicationLogo.getContext())
                 .load(news.getPublication().getLogo())
                 .apply(RequestOptions
+                        // Change to circle image icon design.
                         .circleCropTransform()
                         .placeholder(R.drawable.placeholder_img_black)
                         .error(R.drawable.error_image))
