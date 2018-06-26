@@ -2,6 +2,7 @@ package com.zawzaw.padcmyanmar.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +12,9 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 import org.mmtextview.MMFontUtils;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import com.zawzaw.padcmyanmar.R;
 import com.zawzaw.padcmyanmar.adapters.NewsAdapter;
@@ -23,12 +27,15 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
 
     private NewsAdapter mNewsAdapter;
 
+    @BindView(R.id.swipefreshlayout) SwipeRefreshLayout swipeRefreshLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_list);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ButterKnife.bind(this, this);
 
         MMFontUtils.initMMTextView(this);
 
@@ -39,6 +46,15 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
                 LinearLayoutManager.VERTICAL, false));
 
         NewsModel.getObjInstance().loadNewsList();
+
+        swipeRefreshLayout.setRefreshing(true);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                NewsModel.getObjInstance().loadNewsList();
+            }
+        });
+
     }
 
     @Override
@@ -84,6 +100,7 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
     public void onSuccessGetNews(SuccessGetNewsEvent event) {
         Log.d("SuccessGetNews", "Success Get NewsList : " + event.getNewsList().size());
         mNewsAdapter.setNewsList(event.getNewsList());
+        swipeRefreshLayout.setRefreshing(false);
     }
 
 }
