@@ -46,7 +46,8 @@ public class NewsModel {
     }
 
     public NewsVO getNewsById(String newsId) {
-        return mNewsMap.get(newsId);
+        return null; // TODO: remove this line after testing empty view in NewsDetails.
+        // return mNewsMap.get(newsId);
     }
 
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
