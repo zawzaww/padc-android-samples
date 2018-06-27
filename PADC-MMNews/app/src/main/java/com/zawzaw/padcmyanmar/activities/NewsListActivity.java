@@ -7,6 +7,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -21,6 +23,7 @@ import com.zawzaw.padcmyanmar.adapters.NewsAdapter;
 import com.zawzaw.padcmyanmar.data.models.NewsModel;
 import com.zawzaw.padcmyanmar.data.vos.NewsVO;
 import com.zawzaw.padcmyanmar.delegates.NewsDelegate;
+import com.zawzaw.padcmyanmar.events.ApiErrorEvent;
 import com.zawzaw.padcmyanmar.events.SuccessGetNewsEvent;
 
 public class NewsListActivity extends BaseActivity implements NewsDelegate {
@@ -28,6 +31,7 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
     private NewsAdapter mNewsAdapter;
 
     @BindView(R.id.swipefreshlayout) SwipeRefreshLayout swipeRefreshLayout;
+    @BindView(R.id.rl_empty) RelativeLayout rlEmptyView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +105,12 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
         Log.d("SuccessGetNews", "Success Get NewsList : " + event.getNewsList().size());
         mNewsAdapter.setNewsList(event.getNewsList());
         swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onFailGetNews(ApiErrorEvent errorEvent) {
+        swipeRefreshLayout.setRefreshing(false);
+        rlEmptyView.setVisibility(View.VISIBLE);
     }
 
 }

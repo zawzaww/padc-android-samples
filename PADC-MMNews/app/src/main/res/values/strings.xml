@@ -48,5 +48,6 @@
     </string-array>
 
     <string name="format_posted_date">Posted at : <xliff:g id="posted_date">%1$s</xliff:g> </string>
+    <string name="error_text">Sorry, No Data Available!</string>
 
 </resources>
