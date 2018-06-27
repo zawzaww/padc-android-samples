@@ -31,7 +31,7 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
     private NewsAdapter mNewsAdapter;
 
     @BindView(R.id.swipefreshlayout) SwipeRefreshLayout swipeRefreshLayout;
-    @BindView(R.id.rl_empty) RelativeLayout rlEmptyView;
+    @BindView(R.id.vp_empty) RelativeLayout vpEmptyView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +110,7 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onFailGetNews(ApiErrorEvent errorEvent) {
         swipeRefreshLayout.setRefreshing(false);
-        rlEmptyView.setVisibility(View.VISIBLE);
+        vpEmptyView.setVisibility(View.VISIBLE);
     }
 
 }
