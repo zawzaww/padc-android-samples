@@ -48,6 +48,7 @@
     </string-array>
 
     <string name="format_posted_date">Posted at : <xliff:g id="posted_date">%1$s</xliff:g> </string>
-    <string name="network_error_text">Sorry, no data available!</string>
+    <string name="empty_message">Sorry, no data available!</string>
+    <string name="empty_msgsage_details">Sorry, no News available!</string>
 
 </resources>
