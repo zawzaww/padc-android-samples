@@ -23,6 +23,7 @@ import com.zawzaw.padcmyanmar.data.models.NewsModel;
 import com.zawzaw.padcmyanmar.data.vos.NewsVO;
 import com.zawzaw.padcmyanmar.delegates.NewsDelegate;
 import com.zawzaw.padcmyanmar.events.ApiErrorEvent;
+import com.zawzaw.padcmyanmar.events.ForceRefreshGetNewsEvent;
 import com.zawzaw.padcmyanmar.events.SuccessGetNewsEvent;
 import com.zawzaw.padcmyanmar.viewpods.EmptyViewPod;
 
@@ -48,6 +49,40 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
 
         RecyclerView rvNews = findViewById(R.id.rv_news);
         mNewsAdapter = new NewsAdapter(this);
+
+        rvNews.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            private boolean isListEndReached = false;
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                Log.d("STATE_CHANGE", "onScrollStateChanged : " + newState);
+
+                if (newState == RecyclerView.SCROLL_STATE_IDLE && ((LinearLayoutManager) recyclerView.getLayoutManager())
+                        .findLastCompletelyVisibleItemPosition() == recyclerView.getAdapter()
+                        .getItemCount() - 1 && !isListEndReached) {
+                    isListEndReached = true;
+                    NewsModel.getObjInstance().loadNewsList();
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                Log.d("ON_SCROLL", "onScrolled - dx : " + dx + ", dy : " + dy);
+
+                int visibleItemCount = recyclerView.getLayoutManager().getChildCount();
+                int totalItemCount = recyclerView.getLayoutManager().getItemCount();
+                int pastVisibleItems = ((LinearLayoutManager) recyclerView.getLayoutManager())
+                        .findFirstVisibleItemPosition();
+
+                if (visibleItemCount + pastVisibleItems < totalItemCount) {
+                    isListEndReached = false;
+                }
+            }
+        });
+
         rvNews.setAdapter(mNewsAdapter);
         rvNews.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
                 LinearLayoutManager.VERTICAL, false));
@@ -58,12 +93,11 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                NewsModel.getObjInstance().loadNewsList();
+                NewsModel.getObjInstance().forceRefreshNewsList();
             }
         });
 
         vpEmptyView.setEmptyData(R.drawable.empty_data_placeholder, getString(R.string.empty_message));
-
 
     }
 
@@ -109,6 +143,12 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onSuccessGetNews(SuccessGetNewsEvent event) {
         Log.d("SuccessGetNews", "Success Get NewsList : " + event.getNewsList().size());
+        mNewsAdapter.appendNewsList(event.getNewsList());
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onSuccessForceRefreshGetNews(ForceRefreshGetNewsEvent event) {
         mNewsAdapter.setNewsList(event.getNewsList());
         swipeRefreshLayout.setRefreshing(false);
     }

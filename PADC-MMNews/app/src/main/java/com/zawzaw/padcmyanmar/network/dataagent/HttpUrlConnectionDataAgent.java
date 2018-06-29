@@ -40,7 +40,7 @@ public class HttpUrlConnectionDataAgent implements NewsDataAgent {
     }
 
     @Override
-    public void loadNewsList(final int page, final String accessToken) {
+    public void loadNewsList(final int page, final String accessToken, boolean isForceRefresh) {
 
         NetworkCallTask networkCallTask = new NetworkCallTask(accessToken, page);
         networkCallTask.execute();

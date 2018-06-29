@@ -6,13 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.zawzaw.padcmyanmar.R;
 import com.zawzaw.padcmyanmar.data.vos.NewsVO;
 import com.zawzaw.padcmyanmar.delegates.NewsDelegate;
 import com.zawzaw.padcmyanmar.viewholders.NewsViewHolder;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
 
@@ -45,8 +45,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
         return mNewsList.size();
     }
 
-    public void setNewsList(List<NewsVO> mNewsList) {
-        this.mNewsList = mNewsList;
+    public void setNewsList(List<NewsVO> newsList) {
+        this.mNewsList = newsList;
+        notifyDataSetChanged();
+    }
+
+    public void appendNewsList(List<NewsVO> newsList) {
+        mNewsList.addAll(newsList);
         notifyDataSetChanged();
     }
 

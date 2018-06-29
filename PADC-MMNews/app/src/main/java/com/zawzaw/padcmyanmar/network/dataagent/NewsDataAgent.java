@@ -6,6 +6,6 @@ package com.zawzaw.padcmyanmar.network.dataagent;
 
 public interface NewsDataAgent {
 
-    void loadNewsList(int page, String accessToken);
+    void loadNewsList(int page, String accessToken, boolean isForceRefresh);
 
 }

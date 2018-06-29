@@ -12,6 +12,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.concurrent.TimeUnit;
 
 import com.zawzaw.padcmyanmar.events.ApiErrorEvent;
+import com.zawzaw.padcmyanmar.events.ForceRefreshGetNewsEvent;
 import com.zawzaw.padcmyanmar.events.SuccessGetNewsEvent;
 import com.zawzaw.padcmyanmar.network.responses.GetNewsResponse;
 import com.zawzaw.padcmyanmar.utils.NewsConstants;
@@ -51,18 +52,24 @@ public class RetrofitDataAgent implements NewsDataAgent {
     }
 
     @Override
-    public void loadNewsList(int page, String accessToken) {
+    public void loadNewsList(int page, String accessToken, final boolean isForceRefresh) {
 
         Call<GetNewsResponse> loadNewsCall = mNewsApi.loadNewsList(accessToken, page);
         loadNewsCall.enqueue(new Callback<GetNewsResponse>() {
 
             @Override
             public void onResponse(Call<GetNewsResponse> call, Response<GetNewsResponse> response) {
-
                 GetNewsResponse newsResponse = response.body();
                 if (newsResponse != null && newsResponse.isResponseOk()) {
-                    SuccessGetNewsEvent event = new SuccessGetNewsEvent(newsResponse.getMmNews());
-                    EventBus.getDefault().post(event);
+
+                    if (isForceRefresh) {
+                        ForceRefreshGetNewsEvent event = new ForceRefreshGetNewsEvent(newsResponse.getMmNews());
+                        EventBus.getDefault().post(event);
+                    } else {
+                        SuccessGetNewsEvent event = new SuccessGetNewsEvent(newsResponse.getMmNews());
+                        EventBus.getDefault().post(event);
+                    }
+
                 } else {
                     if (newsResponse == null) {
                         ApiErrorEvent errorEvent = new ApiErrorEvent("Empty response.");

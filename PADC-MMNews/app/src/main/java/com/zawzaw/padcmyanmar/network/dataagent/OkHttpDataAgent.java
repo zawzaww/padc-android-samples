@@ -44,7 +44,7 @@ public class OkHttpDataAgent implements NewsDataAgent {
     }
 
     @Override
-    public void loadNewsList(final int page, final String accessToken) {
+    public void loadNewsList(final int page, final String accessToken, boolean isForceRefresh) {
 
         new AsyncTask<Void, Void, String>() {
 
