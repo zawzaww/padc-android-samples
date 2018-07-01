@@ -1,3 +1,3 @@
-# Hello PADC
+# PADC MMNews
 
-## PADC-5 Android Fun: First Sample Project
+## PADC-5 Android Fun: PADC MMNews Sample Project
