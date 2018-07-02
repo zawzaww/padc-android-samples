@@ -3,6 +3,7 @@ package com.zawzaw.padcmyanmar.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -84,8 +85,10 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
         });
 
         rvNews.setAdapter(mNewsAdapter);
-        rvNews.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
-                LinearLayoutManager.VERTICAL, false));
+        /*rvNews.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
+                LinearLayoutManager.VERTICAL, false));*/
+
+        rvNews.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
 
         NewsModel.getObjInstance().loadNewsList();
 
@@ -145,12 +148,14 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
         Log.d("SuccessGetNews", "Success Get NewsList : " + event.getNewsList().size());
         mNewsAdapter.appendNewsList(event.getNewsList());
         swipeRefreshLayout.setRefreshing(false);
+        vpEmptyView.setVisibility(View.GONE);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onSuccessForceRefreshGetNews(ForceRefreshGetNewsEvent event) {
         mNewsAdapter.setNewsList(event.getNewsList());
         swipeRefreshLayout.setRefreshing(false);
+        vpEmptyView.setVisibility(View.GONE);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
