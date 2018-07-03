@@ -85,10 +85,10 @@ public class NewsListActivity extends BaseActivity implements NewsDelegate {
         });
 
         rvNews.setAdapter(mNewsAdapter);
-        /*rvNews.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
-                LinearLayoutManager.VERTICAL, false));*/
+        rvNews.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
+                LinearLayoutManager.VERTICAL, false));
 
-        rvNews.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
+        /*rvNews.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));*/
 
         NewsModel.getObjInstance().loadNewsList();
 

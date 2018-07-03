@@ -14,16 +14,25 @@ import com.zawzaw.padcmyanmar.data.vos.NewsVO;
 import com.zawzaw.padcmyanmar.delegates.NewsDelegate;
 import com.zawzaw.padcmyanmar.utils.GlideApp;
 
-public class NewsViewHolder extends RecyclerView.ViewHolder {
+public class NewsViewHolder extends BaseNewsViewHolder {
 
     private NewsDelegate mNewsDelegate;
     private NewsVO mNews;
 
-    @BindView(R.id.tv_news_brief) TextView tvNewsBrief;
-    @BindView(R.id.iv_news_header) ImageView ivNewsHeaderImage;
-    @BindView(R.id.iv_publication_logo) ImageView ivPublicationLogo;
-    @BindView(R.id.tv_publication_title) TextView tvPublicationTitle;
-    @BindView(R.id.tv_posted_date) TextView tvPostedDate;
+    @BindView(R.id.tv_news_brief)
+    TextView tvNewsBrief;
+
+    @BindView(R.id.iv_news_header)
+    ImageView ivNewsHeaderImage;
+
+    @BindView(R.id.iv_publication_logo)
+    ImageView ivPublicationLogo;
+
+    @BindView(R.id.tv_publication_title)
+    TextView tvPublicationTitle;
+
+    @BindView(R.id.tv_posted_date)
+    TextView tvPostedDate;
 
     public NewsViewHolder(View itemView, NewsDelegate newsDelegate) {
         super(itemView);
@@ -39,7 +48,8 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    public void setNewsData(NewsVO news) {
+    @Override
+    public void bindData(NewsVO news) {
         mNews = news;
 
         // News header image.
@@ -73,5 +83,4 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         tvPostedDate.setText(tvPostedDate.getContext().getResources()
                 .getString(R.string.format_posted_date, news.getPostedDate()));
     }
-
 }
