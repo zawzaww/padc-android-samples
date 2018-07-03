@@ -37,13 +37,13 @@ public class NewsBriefViewHolder extends BaseNewsViewHolder {
     public void bindData(NewsVO news) {
         mNews = news;
 
-        // Publication title
+        // Publication title.
         tvPubTitle.setText(news.getPublication().getTitle());
 
-        // News brief
+        // News brief.
         tvNewsBrief.setText(news.getBrief());
 
-        // News hero image/header image
+        // News hero image/header image.
         if (!news.getImages().isEmpty()) {
             GlideApp.with(ivHeroImage.getContext())
                     .load(news.getImages().get(0))
