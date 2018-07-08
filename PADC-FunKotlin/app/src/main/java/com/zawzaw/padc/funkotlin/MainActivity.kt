@@ -1,4 +1,4 @@
-package com.zawzaw.padc.funkotlinsample
+package com.zawzaw.padc.funkotlin
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar

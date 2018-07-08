@@ -1,4 +1,4 @@
-package com.zawzaw.padc.funkotlinsample
+package com.zawzaw.padc.funkotlin
 
 import org.junit.Test
 
