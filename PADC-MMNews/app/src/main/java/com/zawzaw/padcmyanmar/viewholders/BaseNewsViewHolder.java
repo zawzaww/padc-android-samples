@@ -18,4 +18,5 @@ public abstract class BaseNewsViewHolder extends RecyclerView.ViewHolder {
     public void bindData(NewsVO news) {
 
     }
+
 }
