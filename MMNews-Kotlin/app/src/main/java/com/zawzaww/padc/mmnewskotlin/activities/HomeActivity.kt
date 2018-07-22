@@ -20,11 +20,24 @@ import com.zawzaww.padc.mmnewskotlin.adapters.NewsAdapter
 import com.zawzaww.padc.mmnewskotlin.components.SmartScrollListener
 import com.zawzaww.padc.mmnewskotlin.data.models.NewsAppModel
 import com.zawzaww.padc.mmnewskotlin.data.vos.NewsVO
+import com.zawzaww.padc.mmnewskotlin.delegates.BeforeLoginDelegate
 import com.zawzaww.padc.mmnewskotlin.delegates.NewsItemDelegate
 import com.zawzaww.padc.mmnewskotlin.events.DataEvent
 import com.zawzaww.padc.mmnewskotlin.events.ErrorEvent
 
-class HomeActivity : BaseActivity(), NewsItemDelegate {
+class HomeActivity : BaseActivity(), NewsItemDelegate, BeforeLoginDelegate {
+
+    override fun onTapLogin() {
+        val intent: Intent = Intent(applicationContext, AccountControlActivity::class.java)
+        intent.putExtra("login", "1111")
+        startActivity(intent)
+    }
+
+    override fun onTapRegister() {
+        val inten: Intent = Intent(applicationContext, AccountControlActivity::class.java)
+        intent.putExtra("register", "2222")
+        startActivity(intent)
+    }
 
     private var mNewsAdapter: NewsAdapter? = null
     private var mSmartScrollListener: SmartScrollListener? = null
@@ -99,6 +112,34 @@ class HomeActivity : BaseActivity(), NewsItemDelegate {
             newsAdapterVal!!.clearData()
             NewsAppModel.getInstance().forceLoadNews()
         }
+
+        navigationView.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.menu_latest_news -> {
+                    Snackbar.make(navigationView, "Tapped Latest News", Snackbar.LENGTH_LONG).show()
+                }
+
+                R.id.menu_just_for_you -> {
+                    Snackbar.make(navigationView, "Tapped Just for You", Snackbar.LENGTH_LONG).show()
+                }
+
+                R.id.menu_fav_news -> {
+                    Snackbar.make(navigationView, "Tapped Favorite News", Snackbar.LENGTH_LONG)
+                }
+            }
+
+            for (menuItemIndex in 0 until navigationView.menu.size()) {
+                navigationView.menu.getItem(menuItemIndex).isChecked = false
+            }
+
+            drawerLayout.closeDrawer(GravityCompat.START)
+            it.isChecked = true
+
+            return@setNavigationItemSelectedListener true
+        }
+
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
