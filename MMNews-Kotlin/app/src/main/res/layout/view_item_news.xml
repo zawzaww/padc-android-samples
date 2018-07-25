@@ -96,7 +96,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/btn_comment_news"
+                    android:id="@+id/btnCommentNews"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/size_tappable_small"
                     android:layout_gravity="center"
@@ -115,7 +115,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/btn_send_to_news"
+                    android:id="@+id/btnSendToNews"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/size_tappable_small"
                     android:layout_gravity="center"

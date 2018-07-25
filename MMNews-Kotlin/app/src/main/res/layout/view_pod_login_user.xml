@@ -4,7 +4,7 @@
     android:layout_height="220dp">
 
     <ImageView
-        android:id="@+id/iv_login_user_bg"
+        android:id="@+id/ivLoginUserBg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
@@ -16,35 +16,35 @@
         android:background="#A000" />
 
     <ImageView
-        android:id="@+id/iv_login_user"
+        android:id="@+id/ivLoginUserProfilePic"
         android:layout_width="@dimen/logo_size"
         android:layout_height="@dimen/logo_size"
         android:layout_margin="@dimen/margin_xlarge"
         android:src="@drawable/dummy_user_picture" />
 
     <TextView
-        android:id="@+id/tv_name"
+        android:id="@+id/tvUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/iv_login_user"
-        android:layout_toRightOf="@id/iv_login_user"
+        android:layout_alignTop="@id/ivLoginUserProfilePic"
+        android:layout_toRightOf="@id/ivLoginUserProfilePic"
         android:text="John Doe"
         android:textColor="@color/white_full"
         android:textSize="@dimen/text_regular_3x" />
 
     <TextView
-        android:id="@+id/tv_phone_no"
+        android:id="@+id/tvPhoneNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/tv_name"
-        android:layout_below="@id/tv_name"
+        android:layout_alignLeft="@id/tvUserName"
+        android:layout_below="@id/tvUserName"
         android:layout_marginTop="@dimen/margin_small"
         android:text="0912345678"
         android:textColor="@color/white_full"
         android:textSize="@dimen/text_regular" />
 
     <Button
-        android:id="@+id/btn_logout"
+        android:id="@+id/btnLogout"
         style="@style/AccentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

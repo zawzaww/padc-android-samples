@@ -45,14 +45,14 @@ class HomeActivity : BaseActivity(), NewsItemDelegate, BeforeLoginDelegate {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(toolBar)
 
         supportActionBar!!.setDisplayShowTitleEnabled(false)
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_menu_white)
 
-        fab.setOnClickListener { view ->
+        fabButton.setOnClickListener { view ->
 
             var addResult: Int = addTheseTwo(2410, 1876)
             var todayDate: Date? = null //Date()
@@ -65,7 +65,7 @@ class HomeActivity : BaseActivity(), NewsItemDelegate, BeforeLoginDelegate {
             }
 
             var isTappingFAB: String
-            if (fab is FloatingActionButton)
+            if (fabButton is FloatingActionButton)
                 isTappingFAB = "tapping FAB"
             else
                 isTappingFAB = "not tapping FAB"
@@ -115,15 +115,15 @@ class HomeActivity : BaseActivity(), NewsItemDelegate, BeforeLoginDelegate {
 
         navigationView.setNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.menu_latest_news -> {
+                R.id.menuLatestNews -> {
                     Snackbar.make(navigationView, "Tapped Latest News", Snackbar.LENGTH_LONG).show()
                 }
 
-                R.id.menu_just_for_you -> {
+                R.id.menuNewsJustForYou -> {
                     Snackbar.make(navigationView, "Tapped Just for You", Snackbar.LENGTH_LONG).show()
                 }
 
-                R.id.menu_fav_news -> {
+                R.id.menuFavNews -> {
                     Snackbar.make(navigationView, "Tapped Favorite News", Snackbar.LENGTH_LONG)
                 }
             }
@@ -156,7 +156,7 @@ class HomeActivity : BaseActivity(), NewsItemDelegate, BeforeLoginDelegate {
         }
 
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.actionSettings -> true
             else -> super.onOptionsItemSelected(item)
         }
     }

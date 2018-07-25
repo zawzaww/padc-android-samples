@@ -1,12 +1,12 @@
 package com.zawzaww.padc.mmnewskotlin.data.models
 
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 import com.zawzaww.padc.mmnewskotlin.data.vos.NewsVO
 import com.zawzaww.padc.mmnewskotlin.events.DataEvent
 import com.zawzaww.padc.mmnewskotlin.network.NewsDataAgent
 import com.zawzaww.padc.mmnewskotlin.utils.AppConstants
-import org.greenrobot.eventbus.EventBus
-import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
 
 class NewsAppModel {
     companion object {

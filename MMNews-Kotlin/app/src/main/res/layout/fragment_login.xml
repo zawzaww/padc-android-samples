@@ -4,57 +4,56 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/tvHelloPADC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/hello_padc"
+        android:layout_centerInParent="true"
         android:text="PADC Myanmar"
-        android:textSize="35dp"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_centerInParent="true" />
+        android:textSize="35dp" />
 
 
     <ImageView
-        android:id="@+id/image_view"
+        android:id="@+id/ivPadcLogo"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/hello_padc"
+        android:layout_above="@+id/tvHelloPADC"
         android:layout_centerHorizontal="true"
         android:src="@drawable/padc_myanmar" />
 
     <EditText
+        android:id="@+id/etUserPhoneNo"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/user_phone"
+        android:layout_below="@+id/tvHelloPADC"
+        android:layout_marginLeft="21dp"
         android:hint="Enter your phone number"
-        android:layout_below="@+id/hello_padc"
-        android:inputType="number"
-        android:layout_marginLeft="21dp" />
+        android:inputType="number" />
 
     <EditText
+        android:id="@+id/etUserPassword"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/user_password"
+        android:layout_below="@+id/etUserPhoneNo"
+        android:layout_marginLeft="21dp"
         android:hint="Enter your password"
-        android:layout_below="@+id/user_phone"
-        android:inputType="textPassword"
-        android:layout_marginLeft="21dp" />
+        android:inputType="textPassword" />
 
     <Button
+        android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/btn_login"
-        android:layout_below="@id/user_password"
-        android:layout_alignRight="@+id/user_password"
-        />
+        android:layout_alignRight="@+id/etUserPassword"
+        android:layout_below="@id/etUserPassword"
+        android:text="Login" />
 
     <TextView
+        android:id="@+id/tvRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_register"
-        android:text="Register a new account"
+        android:layout_alignRight="@id/btnLogin"
+        android:layout_below="@id/btnLogin"
         android:padding="9dp"
-        android:layout_below="@id/btn_login"
-        android:layout_alignRight="@id/btn_login" />
+        android:text="Register a new account" />
 
 </RelativeLayout>

@@ -3,18 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <item
-        android:id="@+id/menu_latest_news"
+        android:id="@+id/menuLatestNews"
         android:checked="true"
         android:icon="@drawable/ic_menu_white"
         android:title="Latest News" />
 
     <item
-        android:id="@+id/menu_just_for_you"
+        android:id="@+id/menuNewsJustForYou"
         android:icon="@drawable/ic_menu_white"
         android:title="News Just For You" />
 
     <item
-        android:id="@+id/menu_fav_news"
+        android:id="@+id/menuFavNews"
         android:icon="@drawable/ic_menu_white"
         android:title="Favorite News" />
+
 </menu>
