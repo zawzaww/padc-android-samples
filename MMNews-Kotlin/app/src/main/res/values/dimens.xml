@@ -41,4 +41,5 @@
     <dimen name="toolbar_margin">0dp</dimen>
     <dimen name="bg_dialog_button_radius">4dp</dimen>
     <dimen name="items_photo_size">150dp</dimen>
+    <dimen name="menu_left_width">320dp</dimen>
 </resources>

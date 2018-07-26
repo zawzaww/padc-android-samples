@@ -28,18 +28,18 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/ivLoginUserProfilePic"
         android:layout_toRightOf="@id/ivLoginUserProfilePic"
-        android:text="John Doe"
+        android:text="Zaw Zaw"
         android:textColor="@color/white_full"
         android:textSize="@dimen/text_regular_3x" />
 
     <TextView
-        android:id="@+id/tvPhoneNo"
+        android:id="@+id/tvUserEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/tvUserName"
         android:layout_below="@id/tvUserName"
         android:layout_marginTop="@dimen/margin_small"
-        android:text="0912345678"
+        android:text="zawzaw@outlook.com"
         android:textColor="@color/white_full"
         android:textSize="@dimen/text_regular" />
 
