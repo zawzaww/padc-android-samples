@@ -39,7 +39,7 @@
         android:layout_alignLeft="@id/tvUserName"
         android:layout_below="@id/tvUserName"
         android:layout_marginTop="@dimen/margin_small"
-        android:text="zawzaw@outlook.com"
+        android:text="zawzaw@gmail.com"
         android:textColor="@color/white_full"
         android:textSize="@dimen/text_regular" />
 

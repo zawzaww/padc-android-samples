@@ -9,7 +9,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_home.*
+import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_news_list.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import java.util.*
@@ -24,19 +25,18 @@ import com.zawzaww.padc.mmnewskotlin.delegates.BeforeLoginDelegate
 import com.zawzaww.padc.mmnewskotlin.delegates.NewsItemDelegate
 import com.zawzaww.padc.mmnewskotlin.events.DataEvent
 import com.zawzaww.padc.mmnewskotlin.events.ErrorEvent
+import com.zawzaww.padc.mmnewskotlin.views.pods.BeforeLoginViewPod
 
-class HomeActivity : BaseActivity(), NewsItemDelegate, BeforeLoginDelegate {
+class NewsListActivity : BaseActivity(), NewsItemDelegate, BeforeLoginDelegate {
 
     override fun onTapLogin() {
-        val intent: Intent = Intent(applicationContext, AccountControlActivity::class.java)
-        intent.putExtra("login", "1111")
-        startActivity(intent)
+        Toast.makeText(applicationContext, "Navigate to Login", Toast.LENGTH_LONG)
+                .show()
     }
 
     override fun onTapRegister() {
-        val inten: Intent = Intent(applicationContext, AccountControlActivity::class.java)
-        intent.putExtra("register", "2222")
-        startActivity(intent)
+        Toast.makeText(applicationContext, "Navigate to Register", Toast.LENGTH_LONG)
+                .show()
     }
 
     private var mNewsAdapter: NewsAdapter? = null
@@ -44,7 +44,7 @@ class HomeActivity : BaseActivity(), NewsItemDelegate, BeforeLoginDelegate {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_news_list)
         setSupportActionBar(toolBar)
 
         supportActionBar!!.setDisplayShowTitleEnabled(false)
@@ -132,13 +132,14 @@ class HomeActivity : BaseActivity(), NewsItemDelegate, BeforeLoginDelegate {
                 navigationView.menu.getItem(menuItemIndex).isChecked = false
             }
 
-            drawerLayout.closeDrawer(GravityCompat.START)
             it.isChecked = true
+            drawerLayout.closeDrawer(GravityCompat.START)
 
             return@setNavigationItemSelectedListener true
         }
 
-
+        val vpBeforeLogin = navigationView.getHeaderView(0) as BeforeLoginViewPod
+        vpBeforeLogin.setDelegate(this)
 
     }
 
@@ -280,4 +281,5 @@ class HomeActivity : BaseActivity(), NewsItemDelegate, BeforeLoginDelegate {
         Snackbar.make(rvNews, "ERROR : " + emptyDataLoadedEvent.errorMsg, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
     }
+
 }
