@@ -28,7 +28,8 @@
             android:name=".activities.NewsDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".activities.AccountControlActivity"
+        <activity
+            android:name=".activities.AccountControlActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
     </application>

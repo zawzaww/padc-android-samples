@@ -9,7 +9,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_news_list.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -25,18 +24,21 @@ import com.zawzaww.padc.mmnewskotlin.delegates.BeforeLoginDelegate
 import com.zawzaww.padc.mmnewskotlin.delegates.NewsItemDelegate
 import com.zawzaww.padc.mmnewskotlin.events.DataEvent
 import com.zawzaww.padc.mmnewskotlin.events.ErrorEvent
+import com.zawzaww.padc.mmnewskotlin.utils.AppConstants
 import com.zawzaww.padc.mmnewskotlin.views.pods.BeforeLoginViewPod
 
 class NewsListActivity : BaseActivity(), NewsItemDelegate, BeforeLoginDelegate {
 
     override fun onTapLogin() {
-        Toast.makeText(applicationContext, "Navigate to Login", Toast.LENGTH_LONG)
-                .show()
+        val intent = Intent(applicationContext, AccountControlActivity::class.java)
+        intent.putExtra(AppConstants.ACTION_TYPE, AppConstants.VALUE_LOGIN)
+        startActivity(intent)
     }
 
     override fun onTapRegister() {
-        Toast.makeText(applicationContext, "Navigate to Register", Toast.LENGTH_LONG)
-                .show()
+        val intent = Intent(applicationContext, AccountControlActivity::class.java)
+        intent.putExtra(AppConstants.ACTION_TYPE, AppConstants.VALUE_REGISTER)
+        startActivity(intent)
     }
 
     private var mNewsAdapter: NewsAdapter? = null

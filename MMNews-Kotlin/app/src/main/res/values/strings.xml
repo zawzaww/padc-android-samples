@@ -11,6 +11,7 @@
 
     <string name="format_news_statistical_data"><xliff:g id="like_count">%1$d</xliff:g> Likes - <xliff:g id="comment_count">%2$d</xliff:g> Comments and Sent to <xliff:g id="sent_count">%3$d</xliff:g> people</string>
     <string name="launcher_name">MMNews in Kotlin</string>
+    <string name="account_control">Welcome</string>
 
     <string name="dummy_news_details">ရေရှည်တည်တံ့သည့် ဖွံ့ဖြိုးတိုးတက်မှုရရှိရန် e-Government ၏ အခန်းကဏ္ဍသည် အလွန်အရေးကြီးကြောင်း ပို့ဆောင်ရေးနှင့် ဆက်သွယ်ရေးဝန်ကြီးဌာန ပြည်ထောင်စုဝန်ကြီး ဦးသန့်စင်မောင်က ပြောကြားသည်။
 
@@ -59,8 +60,5 @@
         <item>မြောက်ဒဂုံ</item>
         <item>တာမွေ</item>
     </string-array>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
