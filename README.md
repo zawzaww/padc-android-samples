@@ -1,6 +1,8 @@
 # PADC Myanmar
 ## PADC-5 Android Fundamentals: Sample Projects
 
-<img src="https://miro.medium.com/fit/c/240/240/1*Dsm9HO6o4KyvQUwCN3lJjA.png" />
+## Content
+- [MMNews-Kotlin](https://github.com/zawzaww/padc-fun-samples/tree/fun-5/MMNews-Kotlin)
+- [PADC-MMNews](https://github.com/zawzaww/padc-fun-samples/tree/fun-5/PADC-MMNews)
 
-Contributed by: ZawZaw [@XDA-Developers](https://forum.xda-developers.com/member.php?u=7581611)
+Contributed by: [Zaw Zaw](https://zawzaww.github.io)
