@@ -43,7 +43,7 @@ open class NewsVO(newsId: String = "", brief: String = "", details: String = "",
         }
 
     @SerializedName("comments")
-    var commentActions : List<CommentActionVO>? = commentActions
+    var commentActions: List<CommentActionVO>? = commentActions
         get() {
             return if (field == null)
                 ArrayList()
@@ -52,7 +52,7 @@ open class NewsVO(newsId: String = "", brief: String = "", details: String = "",
         }
 
     @SerializedName("sent-tos")
-    var sentToActions : List<SentToActionVO>? = sentToActions
+    var sentToActions: List<SentToActionVO>? = sentToActions
         get() {
             return if (field == null)
                 ArrayList()

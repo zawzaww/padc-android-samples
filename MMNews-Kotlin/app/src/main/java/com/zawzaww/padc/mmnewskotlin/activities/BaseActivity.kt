@@ -21,7 +21,7 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     @Subscribe
-    fun onEvent(event : Any?) {
+    fun onEvent(event: Any?) {
 
     }
 }

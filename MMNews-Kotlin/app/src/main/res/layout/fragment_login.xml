@@ -51,7 +51,7 @@
         android:text="Login" />
 
     <TextView
-        android:id="@+id/tvRegister"
+        android:id="@+id/btnRegisterAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@id/btnLogin"
