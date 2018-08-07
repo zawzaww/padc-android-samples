@@ -24,4 +24,5 @@ open class BaseActivity : AppCompatActivity() {
     fun onEvent(event: Any?) {
 
     }
+
 }

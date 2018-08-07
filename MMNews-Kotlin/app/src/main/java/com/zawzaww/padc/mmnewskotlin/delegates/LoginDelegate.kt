@@ -6,7 +6,7 @@ package com.zawzaww.padc.mmnewskotlin.delegates
 
 interface LoginDelegate {
 
-    fun onTapLogin()
+    fun onTapLogin(phoneNo: String, password: String)
     fun onTapRegisterAccount()
 
 }

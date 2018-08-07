@@ -25,7 +25,7 @@ import com.zawzaww.padc.mmnewskotlin.delegates.NewsItemDelegate
 import com.zawzaww.padc.mmnewskotlin.events.DataEvent
 import com.zawzaww.padc.mmnewskotlin.events.ErrorEvent
 import com.zawzaww.padc.mmnewskotlin.utils.AppConstants
-import com.zawzaww.padc.mmnewskotlin.views.pods.BeforeLoginViewPod
+import com.zawzaww.padc.mmnewskotlin.views.pods.AccountControlViewPod
 
 class NewsListActivity : BaseActivity(), NewsItemDelegate, BeforeLoginDelegate {
 
@@ -140,8 +140,8 @@ class NewsListActivity : BaseActivity(), NewsItemDelegate, BeforeLoginDelegate {
             return@setNavigationItemSelectedListener true
         }
 
-        val vpBeforeLogin = navigationView.getHeaderView(0) as BeforeLoginViewPod
-        vpBeforeLogin.setDelegate(this)
+        val vpAccountConrol = navigationView.getHeaderView(0) as AccountControlViewPod
+        vpAccountConrol.setDelegate(this)
 
     }
 

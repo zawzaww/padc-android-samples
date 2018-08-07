@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import com.zawzaww.padc.mmnewskotlin.events.DataEvent
 import com.zawzaww.padc.mmnewskotlin.events.ErrorEvent
 import com.zawzaww.padc.mmnewskotlin.network.responses.GetNewsResponse
+import com.zawzaww.padc.mmnewskotlin.network.responses.UserLoginResponse
 import okhttp3.OkHttpClient
 import org.greenrobot.eventbus.EventBus
 import retrofit2.Call
@@ -60,7 +61,7 @@ class NewsDataAgent {
                     val newsLoadedEvent = DataEvent.NewsLoadedEvent(newsResponse.getPageNo(), newsResponse.getNewsList())
                     EventBus.getDefault().post(newsLoadedEvent)
                 } else {
-                    if(newsResponse != null)
+                    if (newsResponse != null)
                         EventBus.getDefault().post(DataEvent.EmptyDataLoadedEvent(newsResponse.getMessage()))
                     else
                         EventBus.getDefault().post(DataEvent.EmptyDataLoadedEvent())
@@ -68,4 +69,22 @@ class NewsDataAgent {
             }
         })
     }
+
+    fun loginUser(phoneNo: String, password: String) {
+        val loginUserCall = mNewsApi.loginUser(phoneNo, password)
+        loginUserCall.enqueue(object : Callback<UserLoginResponse> {
+
+            override fun onResponse(call: Call<UserLoginResponse>?, response: Response<UserLoginResponse>?) {
+                val loginRespone: UserLoginResponse? = response!!.body()
+
+            }
+
+            override fun onFailure(call: Call<UserLoginResponse>?, t: Throwable?) {
+                EventBus.getDefault().post(ErrorEvent.ApiErrorEvent(t))
+            }
+
+        })
+
+    }
+
 }

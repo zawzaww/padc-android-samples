@@ -18,8 +18,8 @@ class AccountControlActivity : BaseActivity(), LoginDelegate, RegisterDelegate {
                 .commit()
     }
 
-    override fun onTapLogin() {
-        // To Implement
+    override fun onTapLogin(phoneNo: String, password: String) {
+
     }
 
     override fun onTapRegisterAccount() {

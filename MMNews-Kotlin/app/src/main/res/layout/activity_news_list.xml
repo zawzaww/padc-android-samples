@@ -36,24 +36,37 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/swipeRefreshLayout"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <com.zawzaww.padc.mmnewskotlin.components.SmartRecyclerView
-                android:id="@+id/rvNews"
+            <fragment
+                android:id="@+id/fmHighlight"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="220dp"
+                tools:layout="@layout/fragment_highlight" />
 
-            <include
-                android:id="@+id/vpEmptyNews"
-                layout="@layout/view_pod_empty"
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefreshLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_below="@+id/fmHighlight">
 
-        </android.support.v4.widget.SwipeRefreshLayout>
+                <com.zawzaww.padc.mmnewskotlin.components.SmartRecyclerView
+                    android:id="@+id/rvNews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    android:id="@+id/vpEmptyNews"
+                    layout="@layout/view_pod_empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+        </RelativeLayout>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fabButton"
@@ -70,7 +83,7 @@
         android:layout_width="@dimen/menu_left_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/view_pod_before_login"
+        app:headerLayout="@layout/view_pod_account_control"
         app:itemTextColor="@drawable/state_main_menu_item"
         app:menu="@menu/menu_main" />
 

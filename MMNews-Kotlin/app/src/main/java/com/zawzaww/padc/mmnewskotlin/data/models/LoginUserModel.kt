@@ -1,6 +1,8 @@
 package com.zawzaww.padc.mmnewskotlin.data.models
 
 import com.zawzaww.padc.mmnewskotlin.data.vos.LoginUserVO
+import com.zawzaww.padc.mmnewskotlin.events.UserSessionEvent
+import com.zawzaww.padc.mmnewskotlin.network.NewsDataAgent
 import org.greenrobot.eventbus.EventBus
 
 /**
@@ -11,6 +13,7 @@ class LoginUserModel {
 
     companion object {
         private var objInstance: LoginUserModel? = null
+
         fun getObjInstance(): LoginUserModel {
             if (objInstance == null) {
                 objInstance = LoginUserModel()
@@ -22,7 +25,6 @@ class LoginUserModel {
 
     private constructor() {
         EventBus.getDefault().register(this)
-
     }
 
     private var mLoginUser: LoginUserVO? = null
@@ -30,6 +32,5 @@ class LoginUserModel {
     fun isUserLogin(): Boolean {
         return mLoginUser != null
     }
-
 
 }
