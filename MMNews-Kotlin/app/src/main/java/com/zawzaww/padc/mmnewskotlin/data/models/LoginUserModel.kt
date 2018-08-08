@@ -1,15 +1,12 @@
 package com.zawzaww.padc.mmnewskotlin.data.models
 
 import com.zawzaww.padc.mmnewskotlin.data.vos.LoginUserVO
-import com.zawzaww.padc.mmnewskotlin.events.UserSessionEvent
-import com.zawzaww.padc.mmnewskotlin.network.NewsDataAgent
-import org.greenrobot.eventbus.EventBus
 
 /**
  * Created by zawzaw on 05/08/2018.
  */
 
-class LoginUserModel {
+class LoginUserModel : BaseModel() {
 
     companion object {
         private var objInstance: LoginUserModel? = null
@@ -21,10 +18,6 @@ class LoginUserModel {
             val i = objInstance
             return i!!
         }
-    }
-
-    private constructor() {
-        EventBus.getDefault().register(this)
     }
 
     private var mLoginUser: LoginUserVO? = null

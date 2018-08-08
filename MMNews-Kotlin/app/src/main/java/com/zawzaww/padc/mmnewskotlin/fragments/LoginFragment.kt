@@ -1,17 +1,15 @@
 package com.zawzaww.padc.mmnewskotlin.fragments
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_login.view.*
 import com.zawzaww.padc.mmnewskotlin.R
-import com.zawzaww.padc.mmnewskotlin.activities.NewsListActivity
 import com.zawzaww.padc.mmnewskotlin.delegates.LoginDelegate
 import com.zawzaww.padc.mmnewskotlin.events.UserSessionEvent
-
-import kotlinx.android.synthetic.main.fragment_login.view.*
+import kotlinx.android.synthetic.main.fragment_login.*
 
 /**
  * Created by zawzaw on 22/07/2018.
@@ -36,17 +34,15 @@ class LoginFragment : BaseFragment() {
         }
 
         loginFragment.btnLogin.setOnClickListener {
-            // mDelegate.onTapLogin()
+            val phoneNo = etUserPhoneNo.text.toString()
+            val password = etUserPassword.text.toString()
+
+            mDelegate.onTapLogin(phoneNo, password)
+
+
         }
 
         return loginFragment
-    }
-
-    fun onSuccessLoginUser(event: UserSessionEvent) {
-//        val intent = Intent(context, NewsListActivity::class.java)
-//        startActivity(intent)
-        activity!!.onBackPressed()
-
     }
 
 }

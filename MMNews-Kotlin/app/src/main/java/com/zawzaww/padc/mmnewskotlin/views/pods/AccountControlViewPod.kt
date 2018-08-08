@@ -4,9 +4,9 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
+import kotlinx.android.synthetic.main.view_pod_account_control.view.*
 import com.zawzaww.padc.mmnewskotlin.data.models.LoginUserModel
 import com.zawzaww.padc.mmnewskotlin.delegates.BeforeLoginDelegate
-import kotlinx.android.synthetic.main.view_pod_account_control.view.*
 
 /**
  * Created by zawzaw on 07/08/2018.

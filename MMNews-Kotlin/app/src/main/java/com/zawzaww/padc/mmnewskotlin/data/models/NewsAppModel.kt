@@ -8,9 +8,11 @@ import com.zawzaww.padc.mmnewskotlin.events.DataEvent
 import com.zawzaww.padc.mmnewskotlin.network.NewsDataAgent
 import com.zawzaww.padc.mmnewskotlin.utils.AppConstants
 
-class NewsAppModel {
+class NewsAppModel : BaseModel() {
+
     companion object {
         private var INSTANCE: NewsAppModel? = null
+
         fun getInstance(): NewsAppModel {
             if (INSTANCE == null) {
                 INSTANCE = NewsAppModel()
@@ -19,10 +21,6 @@ class NewsAppModel {
             val i = INSTANCE
             return i!!
         }
-    }
-
-    private constructor() {
-        EventBus.getDefault().register(this)
     }
 
     private var mNewsPage: Int = 1
