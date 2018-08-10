@@ -7,4 +7,5 @@ class DataEvent {
     class NewsLoadedEvent(val loadedPageIndex: Int, val loadedNews: List<NewsVO>)
 
     class EmptyDataLoadedEvent(val errorMsg: String? = "Empty Body Response")
+
 }

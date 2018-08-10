@@ -2,6 +2,7 @@ package com.zawzaww.padc.mmnewskotlin.activities
 
 import android.os.Bundle
 import com.zawzaww.padc.mmnewskotlin.R
+import com.zawzaww.padc.mmnewskotlin.data.models.LoginUserModel
 import com.zawzaww.padc.mmnewskotlin.delegates.LoginDelegate
 import com.zawzaww.padc.mmnewskotlin.delegates.RegisterDelegate
 import com.zawzaww.padc.mmnewskotlin.fragments.LoginFragment
@@ -19,6 +20,7 @@ class AccountControlActivity : BaseActivity(), LoginDelegate, RegisterDelegate {
     }
 
     override fun onTapLogin(phoneNo: String, password: String) {
+        LoginUserModel.getObjInstance().loginUser(phoneNo, password)
 
     }
 
