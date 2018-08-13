@@ -43,9 +43,9 @@
 
             <fragment
                 android:id="@+id/fmHighlight"
+                android:name="com.zawzaww.padc.mmnewskotlin.fragments.HighlightFragment"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
-                tools:layout="@layout/fragment_highlight" />
+                android:layout_height="220dp" />
 
             <android.support.v4.widget.SwipeRefreshLayout
                 android:id="@+id/swipeRefreshLayout"
@@ -65,7 +65,6 @@
                     android:layout_height="match_parent" />
 
             </android.support.v4.widget.SwipeRefreshLayout>
-
         </RelativeLayout>
 
         <android.support.design.widget.FloatingActionButton
