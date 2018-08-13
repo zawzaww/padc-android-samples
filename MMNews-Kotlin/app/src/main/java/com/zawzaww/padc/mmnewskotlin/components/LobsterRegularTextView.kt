@@ -23,7 +23,7 @@ class LobsterRegularTextView : AppCompatTextView {
     }
 
     private fun init(context: Context) {
-        val t = Typeface.createFromAsset(context.assets, "fonts/Lobster-Regular.ttf")
+        val t = Typeface.createFromAsset(context.assets, "fonts/Product-Sans.ttf")
         this.typeface = t
     }
 }

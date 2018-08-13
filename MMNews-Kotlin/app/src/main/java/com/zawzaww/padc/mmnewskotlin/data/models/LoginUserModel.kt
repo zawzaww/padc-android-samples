@@ -13,13 +13,13 @@ import com.zawzaww.padc.mmnewskotlin.network.NewsDataAgent
 class LoginUserModel : BaseModel() {
 
     companion object {
-        private var objInstance: LoginUserModel? = null
+        private var objInstanceLogin: LoginUserModel? = null
 
         fun getObjInstance(): LoginUserModel {
-            if (objInstance == null) {
-                objInstance = LoginUserModel()
+            if (objInstanceLogin == null) {
+                objInstanceLogin = LoginUserModel()
             }
-            val i = objInstance
+            val i = objInstanceLogin
             return i!!
         }
     }

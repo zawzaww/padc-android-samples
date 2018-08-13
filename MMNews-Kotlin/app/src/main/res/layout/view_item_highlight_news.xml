@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zawzaww.padc.mmnewskotlin.views.items.HighlightNewsViewItem xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/ivHighlight"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_news_placeholder" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A000" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/tvNewsHeadTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/margin_medium_2"
+        android:text="@string/highlight_news_head"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_heading_1x" />
+
+</com.zawzaww.padc.mmnewskotlin.views.items.HighlightNewsViewItem>
