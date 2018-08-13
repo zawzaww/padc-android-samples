@@ -46,10 +46,8 @@ class LoginFragment : BaseFragment() {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onLoginUserSuccess(event: UserSessionEvent.LoginUserSuccessEvent) {
-        val intent = Intent(context, NewsListActivity::class.java)
-        startActivity(intent)
-
+    fun onSuccessLoginUser(event: UserSessionEvent.LoginUserSuccessEvent) {
+        activity!!.onBackPressed()
     }
 
 }

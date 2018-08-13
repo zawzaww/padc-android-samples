@@ -34,8 +34,12 @@ class LoginUserModel : BaseModel() {
         NewsDataAgent.getInstance().loginUser(phoneNo, password)
     }
 
+    fun getLoginUser(): LoginUserVO? {
+        return mLoginUser
+    }
+
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    fun onLoginUserSuccess(loginUserSuccessEvent: UserSessionEvent.LoginUserSuccessEvent) {
+    fun onSuccessLoginUser(loginUserSuccessEvent: UserSessionEvent.LoginUserSuccessEvent) {
         mLoginUser = loginUserSuccessEvent.loginUser
     }
 

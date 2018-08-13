@@ -4,9 +4,13 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
-import kotlinx.android.synthetic.main.view_pod_account_control.view.*
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 import com.zawzaww.padc.mmnewskotlin.data.models.LoginUserModel
 import com.zawzaww.padc.mmnewskotlin.delegates.BeforeLoginDelegate
+import com.zawzaww.padc.mmnewskotlin.events.UserSessionEvent
+import kotlinx.android.synthetic.main.view_pod_account_control.view.*
 
 /**
  * Created by zawzaw on 07/08/2018.
@@ -20,12 +24,16 @@ class AccountControlViewPod : FrameLayout {
 
     override fun onFinishInflate() {
         super.onFinishInflate()
+
         if (LoginUserModel.getObjInstance().isUserLogin()) {
-            vpLoginUser.visibility = View.VISIBLE
-            vpBeforeLogin.visibility = View.GONE
+            displayLoginUser()
+
         } else {
-            vpBeforeLogin.visibility = View.VISIBLE
-            vpLoginUser.visibility = View.GONE
+            displayBeforeLogin()
+        }
+
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().isRegistered(this)
         }
     }
 
@@ -33,4 +41,18 @@ class AccountControlViewPod : FrameLayout {
         (vpBeforeLogin as BeforeLoginViewPod).setDelegate(delegate)
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onSuccessLoginUser(event: UserSessionEvent.LoginUserSuccessEvent) {
+        displayLoginUser()
+    }
+
+    private fun displayLoginUser() {
+        vpLoginUser.visibility = View.VISIBLE
+        vpBeforeLogin.visibility = View.GONE
+    }
+
+    private fun displayBeforeLogin() {
+        vpBeforeLogin.visibility = View.VISIBLE
+        vpLoginUser.visibility = View.GONE
+    }
 }
