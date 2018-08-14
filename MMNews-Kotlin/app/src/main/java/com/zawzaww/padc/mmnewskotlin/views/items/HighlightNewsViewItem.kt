@@ -3,7 +3,9 @@ package com.zawzaww.padc.mmnewskotlin.views.items
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.RelativeLayout
+import com.bumptech.glide.Glide
 import com.zawzaww.padc.mmnewskotlin.data.vos.NewsVO
+import kotlinx.android.synthetic.main.view_item_highlight_news.view.*
 
 /**
  * Created by zawzaw on 05/08/2018.
@@ -20,6 +22,17 @@ class HighlightNewsViewItem : RelativeLayout {
     }
 
     fun bindData(news: NewsVO) {
-        // Bind data logic
+        tvNewsHeadTitle.text = news.brief
+
+        if (news.images != null && !news.images!!.isEmpty()) {
+            Glide.with(context)
+                    .load(news.images!![0])
+                    .into(ivHighlightNewsBg)
+        } else {
+            Glide.with(context)
+                    .load(news.publication!!.logo)
+                    .into(ivHighlightNewsBg)
+        }
+
     }
 }
