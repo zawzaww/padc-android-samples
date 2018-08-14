@@ -22,8 +22,9 @@ class HighlightNewsViewItem : RelativeLayout {
     }
 
     fun bindData(news: NewsVO) {
+        // Highlight News Headtitle name
         tvNewsHeadTitle.text = news.brief
-
+        // Highlight News Background Image
         if (news.images != null && !news.images!!.isEmpty()) {
             Glide.with(context)
                     .load(news.images!![0])
@@ -33,6 +34,5 @@ class HighlightNewsViewItem : RelativeLayout {
                     .load(news.publication!!.logo)
                     .into(ivHighlightNewsBg)
         }
-
     }
 }

@@ -1,7 +1,6 @@
 package com.zawzaww.padc.mmnewskotlin
 
 import android.app.Application
-import com.zawzaww.padc.mmnewskotlin.data.models.NewsAppModel
 
 class MMNewsApp : Application() {
 
