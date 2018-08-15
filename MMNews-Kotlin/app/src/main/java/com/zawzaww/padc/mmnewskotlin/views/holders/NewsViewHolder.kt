@@ -1,8 +1,6 @@
 package com.zawzaww.padc.mmnewskotlin.views.holders
 
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.zawzaww.padc.mmnewskotlin.R
 import com.zawzaww.padc.mmnewskotlin.data.vos.NewsVO

@@ -21,13 +21,14 @@ class NewsDetailsImageAdapter : PagerAdapter() {
     }
 
     override fun getCount(): Int {
-        return 16
+        return mData.size
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val inflater = LayoutInflater.from(container.context)
         val viewNewsDetailsImage = inflater.inflate(R.layout.view_item_news_details_image, container, false)
                 as NewsDetailsImageViewItem
+        viewNewsDetailsImage.setImageData(mData[position])
 
         container.addView(viewNewsDetailsImage)
         return viewNewsDetailsImage
@@ -35,6 +36,13 @@ class NewsDetailsImageAdapter : PagerAdapter() {
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         container.removeView(`object` as HighlightNewsViewItem)
+    }
+
+    fun setNewsImageData(newsDetailsImage: List<String>?) {
+        if (newsDetailsImage != null) {
+            mData = newsDetailsImage
+            notifyDataSetChanged()
+        }
     }
 
 }

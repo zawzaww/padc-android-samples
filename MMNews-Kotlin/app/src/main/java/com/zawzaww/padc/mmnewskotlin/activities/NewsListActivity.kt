@@ -259,8 +259,8 @@ class NewsListActivity : BaseActivity(), NewsItemDelegate, BeforeLoginDelegate {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun onTapNews(news: NewsVO?) {
-        val intent = Intent(applicationContext, NewsDetailsActivity::class.java)
+    override fun onTapNews(news: NewsVO) {
+        val intent: Intent = NewsDetailsActivity.newIntent(applicationContext, news.newsId)
         startActivity(intent)
     }
 

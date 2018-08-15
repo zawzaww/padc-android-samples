@@ -38,7 +38,10 @@ class NewsAppModel : BaseModel() {
 
     fun getNews(): List<NewsVO> {
         return ArrayList<NewsVO>(mNewsData.values)
+    }
 
+    fun getNewsById(newsId: String): NewsVO? {
+        return mNewsData[newsId]
     }
 
     @Subscribe(threadMode = ThreadMode.BACKGROUND)

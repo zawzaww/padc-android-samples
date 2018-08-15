@@ -7,7 +7,7 @@ open class NewsVO(newsId: String = "", brief: String = "", details: String = "",
                   publication: PublicationVO? = null,
                   favoriteActions: List<FavoriteActionVO> = ArrayList(),
                   commentActions: List<CommentActionVO> = ArrayList(),
-                  sentToActions: List<SentToActionVO> = ArrayList()) {
+                  sentToActions: List<SentToActionVO> = ArrayList()) : Any() {
 
     @SerializedName("news-id")
     open var newsId: String = newsId
