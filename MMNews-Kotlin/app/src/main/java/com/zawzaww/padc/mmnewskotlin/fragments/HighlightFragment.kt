@@ -1,6 +1,7 @@
 package com.zawzaww.padc.mmnewskotlin.fragments
 
 import android.os.Bundle
+import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import com.zawzaww.padc.mmnewskotlin.R
 import com.zawzaww.padc.mmnewskotlin.adapters.HighlightNewsAdapter
 import com.zawzaww.padc.mmnewskotlin.data.models.NewsAppModel
 import com.zawzaww.padc.mmnewskotlin.events.DataEvent
+import kotlinx.android.synthetic.main.fragment_highlight.*
 import kotlinx.android.synthetic.main.fragment_highlight.view.*
 
 class HighlightFragment : BaseFragment() {
@@ -21,15 +23,31 @@ class HighlightFragment : BaseFragment() {
         mAdapter = HighlightNewsAdapter()
         view.pagerHighlightNews.adapter = mAdapter
 
+        view.pagerHighlightNews.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {
+
+            }
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+
+            }
+
+            override fun onPageSelected(position: Int) {
+                pivHighlightNews.setCurrentPage(position)
+
+            }
+        })
+
         mAdapter.setNewsData(NewsAppModel.getInstance().getNews())
+        view.pivHighlightNews.setNumPage(mAdapter.count)
 
         return view
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onNewsLoadedEvent(event: DataEvent.NewsLoadedEvent) {
-        mAdapter.setNewsData(event.loadedNews)
-
+    fun onNewsLoadedEvent(newsLoadedEvent: DataEvent.NewsLoadedEvent) {
+        mAdapter.setNewsData(newsLoadedEvent.loadedNews)
+        view!!.pivHighlightNews.setNumPage(mAdapter.count)
     }
 
 }

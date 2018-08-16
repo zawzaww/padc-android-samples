@@ -9,4 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <com.zawzaww.padc.mmnewskotlin.components.PageIndicatorView
+        android:id="@+id/pivHighlightNews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin_medium" />
+
 </RelativeLayout>
