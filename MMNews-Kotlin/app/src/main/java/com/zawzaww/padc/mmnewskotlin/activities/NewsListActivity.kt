@@ -30,14 +30,20 @@ import com.zawzaww.padc.mmnewskotlin.views.pods.AccountControlViewPod
 class NewsListActivity : BaseActivity(), NewsItemDelegate, BeforeLoginDelegate {
 
     override fun onTapLogin() {
-        val intent = Intent(applicationContext, AccountControlActivity::class.java)
-        intent.putExtra(AppConstants.ACTION_TYPE, AppConstants.VALUE_LOGIN)
+//        val intent = Intent(applicationContext, AccountControlActivity::class.java)
+//        intent.putExtra(AppConstants.ACTION_TYPE, AppConstants.VALUE_LOGIN)
+//        startActivity(intent)
+
+        val intent = AccountControlActivityTwo.newIntent(applicationContext)
         startActivity(intent)
     }
 
     override fun onTapRegister() {
-        val intent = Intent(applicationContext, AccountControlActivity::class.java)
-        intent.putExtra(AppConstants.ACTION_TYPE, AppConstants.VALUE_REGISTER)
+//        val intent = Intent(applicationContext, AccountControlActivity::class.java)
+//        intent.putExtra(AppConstants.ACTION_TYPE, AppConstants.VALUE_REGISTER)
+//        startActivity(intent)
+
+        val intent = AccountControlActivityTwo.newIntent(applicationContext)
         startActivity(intent)
     }
 

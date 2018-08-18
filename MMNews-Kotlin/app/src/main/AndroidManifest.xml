@@ -32,6 +32,8 @@
             android:name=".activities.AccountControlActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity android:name=".activities.AccountControlActivityTwo" />
+
     </application>
 
 </manifest>
