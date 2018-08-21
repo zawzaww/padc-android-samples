@@ -3,6 +3,7 @@
 
 ## Index
 - [MMNews-Kotlin](https://github.com/zawzaww/padc-fun-samples/tree/fun-5/MMNews-Kotlin) : PADC MMNews Sample Project in Kotlin
+- [PADC-FirebaseAuth](https://github.com/zawzaww/padc-fun-samples/tree/fun-5/PADC-FirebaseAuth) : PADC FirebaseAuth Sample Project
 - [PADC-MMNews](https://github.com/zawzaww/padc-fun-samples/tree/fun-5/PADC-MMNews) : PADC MMNews Sample Project in Java
 
 Contributed by: [Zaw Zaw](https://zawzaww.github.io)
