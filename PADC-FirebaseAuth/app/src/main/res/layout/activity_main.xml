@@ -31,11 +31,12 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/btnSignoutGoogle"
             android:layout_centerInParent="true"
-            android:background="@drawable/btn_background"
             android:layout_marginBottom="@dimen/margin_medium"
+            android:background="@drawable/btn_background"
             android:fontFamily="sans-serif"
             android:text="SignIn with Google"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btnSignoutGoogle"
@@ -47,7 +48,8 @@
             android:background="@drawable/btn_background"
             android:fontFamily="sans-serif"
             android:text="SignOut Google"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
 
     </RelativeLayout>
 
