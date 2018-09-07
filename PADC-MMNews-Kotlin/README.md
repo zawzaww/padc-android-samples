@@ -1,3 +1,3 @@
-# MMNews Kotlin
+# PADC MMNews in Kotlin
 
-## PADC-5 Android Fun: MMNews Kotlin Sample Project
+## PADC-5 Android Fun: PADC MMNews Sample Project
